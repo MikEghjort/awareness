@@ -3,9 +3,28 @@
 <head>
   <meta charset="utf-8">
   <title>Awareness Øvelse</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7D34YE9ML"></script>
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7D34YE9ML', { anonymize_ip: true });
+
+    // Tilføj bruger-ID hvis du sender ?user=navn i linket
+    (function () {
+      const u = new URLSearchParams(location.search).get('user');
+      if (u) gtag('event', 'awareness_click', { user_id_from_url: u });
+    })();
+  </script>
+
+  <script>
+    // Pop-up når siden åbnes
     window.onload = function() {
       alert("ØVELSE: Du er blevet hacket ved at klikke på et mistænkeligt link.\n\nIngen data er kompromitteret. Dette var en kontrolleret træning.");
+      // Valgfrit redirect til en “rigtig” side efter 1,5 sek:
+      // setTimeout(function(){ location.href="https://shop.suri.dk/produkt-kategori/aarstids-menuer/"; }, 1500);
     }
   </script>
 </head>
